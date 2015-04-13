@@ -1,6 +1,6 @@
 <h1>Fuck Off, Rails!</h1>
 
-<% form_for @item do |f| %>
+<%= form_for [@user, @item] do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 	<br>

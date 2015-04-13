@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
 	def new
 		@item = Item.new
+		@user = User.find(session[:id])
 		@item.user_id = session[:id]
 		@item.save
 		render 'new'

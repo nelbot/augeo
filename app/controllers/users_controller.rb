@@ -14,14 +14,11 @@ class UsersController < ApplicationController
       @user = User.create users_privates
     end
 
-    session[:email] = @user.email
+    session[:id] = @user.id
 
-    redirect_to '/users/home'
+    redirect_to "/users/#{@user.id}/items/new"
   end
 
-  def index
-    # @user = User.new_user(@user)
-  end
 
   private
 

@@ -5,7 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create users_privates
+    @user = User.find_by(email: user_privates[:email])
+
+    if @user != nil
+      flash[:notice] = "Thanks for coming back, dummy"
+    else
+      flash[:notice] = "You're New, Scrub"
+      @user = User.create user_privates
+    end
+
     session[:email] = @user.email
 
     redirect_to '/users/home'

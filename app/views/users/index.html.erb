@@ -1,3 +1,19 @@
 <h1>Fuck Off, Rails!</h1>
 
+<% form_for @item do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :description %>
+	<%= f.text_field :description %>
+	<br>
+	<%= f.label :price %>
+	<%= f.number_field :price %>
+	<br>
+	<%= f.label :expiration %>
+	<%= f.datetime_field :expiration %>
+	<br>
+	<%= f.submit "Store" %>
+<% end %>
+
 <%= session[:email] %>

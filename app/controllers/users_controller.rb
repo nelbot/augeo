@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: user_privates[:email])
+    @user = User.find_by(email: users_privates[:email])
 
     if @user != nil
       flash[:notice] = "Thanks for coming back, dummy"
     else
       flash[:notice] = "You're New, Scrub"
-      @user = User.create user_privates
+      @user = User.create users_privates
     end
 
     session[:email] = @user.email

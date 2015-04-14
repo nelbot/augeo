@@ -61,3 +61,49 @@ Note: You don't need authentication for this. To identify a user just ask for hi
   - Save auction to the database
   - Redirect back to items page.
 - Items page needs to show user's items.
+
+
+### User sign-out (or sign-in again) ###
+
+- Make a route to clear out the session
+- Redirect to home
+- Add sign out links
+
+```ruby
+session[:user_id] = nil
+
+# OR
+reset_session
+```
+
+
+### Buy items ###
+
+- Show list of other people's items or auctions (new page)
+- See a single item or auction
+- That page will have a bid form
+  - Bid must be higher than starting price
+  - Bid must be higher than the previous bid
+  - Bid must be associated to user
+  - Bid must be associated to item/auction
+- Item's list of bids
+
+
+### Auctions have an expiration or end date ###
+
+- When you access the single item or auction page, check if date is passed
+- If date is passed render a different ERB (or add an if to existing ERB)
+- Add validation on POST route to make sure you can't bid on expired items
+- Display winning bid and user on expired auction page
+
+
+### Items you've bid on ###
+
+- Retrieve a list of your bids and through those get the list of items
+- Do the previous step in the model
+- Add a page to show these items
+
+```ruby
+@user = User.find(session[:user_id])
+@items = @user.items_bid_on
+```

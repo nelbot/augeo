@@ -1,19 +1,22 @@
-<h1>Fuck Off, Rails!</h1>
-
-<%= form_for [@user, @item] do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	<br>
-	<%= f.label :description %>
-	<%= f.text_field :description %>
-	<br>
-	<%= f.label :price %>
-	<%= f.number_field :price %>
-	<br>
-	<%= f.label :expiration %>
-	<%= f.datetime_field :expiration %>
-	<br>
-	<%= f.submit "Store" %>
-<% end %>
-
-<%= User.find(session[:id]).email %>
+<div class="container">
+	<div class="row">
+		<h1>Fuck Off, Rails!</h1>
+				<%= form_for [@user, @item] do |f| %>
+					<%= f.label :name %>
+					<%= f.text_field :name, {class: 'form-control', placeholder: 'dsfsdf'} %>
+					<br>
+					<%= f.label :description %>
+					<%= f.text_field :description %>
+					<br>
+					<%= f.label :price %>
+					<%= f.number_field :price %>
+					<br>
+					<%= f.label :expiration %>
+					<%= f.date_field :expiration %>
+					<br>
+					<%= f.submit "Store" %>
+				<% end %>
+			</dl>
+		<p>You are logged in as: <%= User.find(session[:id]).email %>
+	</div>
+</div>

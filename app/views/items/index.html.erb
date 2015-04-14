@@ -1,1 +1,6 @@
-<%= @items %>
+<% @items.each do |item| %>
+  <%= link_to item.name %>
+  <%= item.description %>
+  <%= item.price %>
+  <%= item.expiration %>
+<% end %>

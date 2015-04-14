@@ -1,25 +1,16 @@
-<div class="container">
-	<div class="row">
-		<h1>Fuck Off, Rails!</h1>
+<h2>Add an Item</h2>
 				<%= form_for [@user, @item] do |f| %>
 					<%= f.label :name %>
-					<%= f.text_field :name, {class: 'form-control', placeholder: 'dsfsdf'} %>
+					<%= f.text_field :name, {class: 'form-control'} %>
 					<br>
 					<%= f.label :description %>
-					<%= f.text_field :description %>
+					<%= f.text_field :description, {class: 'form-control'} %>
 					<br>
 					<%= f.label :price %>
-					<%= f.number_field :price %>
-					<br>
-					<%= f.label :expiration %>
-					<%= f.date_field :expiration %>
-					<br>
-					<%= f.submit "Store" %>
+					<%= f.number_field :price %>   <%= f.label :expiration %>   <%= f.date_field :expiration %>  <%= f.submit "Store", {class: 'btn-default'} %>
 				<% end %>
 			</dl>
 		<p>You are logged in as: <%= User.find(session[:id]).email %>
-	</div>
-		<div class="row">
 
 			<ul>
 				<% @items.each do |item| %>
@@ -32,5 +23,3 @@
 					</li>
 				<% end %>
 			</ul>
-		</div>
-</div>

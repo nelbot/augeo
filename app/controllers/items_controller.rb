@@ -2,14 +2,14 @@ class ItemsController < ApplicationController
 	def new
 		@item = Item.new
 		@user = User.find(session[:id])
-		@item.user_id = session[:id]
-		@item.save
-		@items = Item.where(id: 1)
+		@items = Item.where(user_id: session[:id])
 		render 'new'
 	end
 
 	def create
-		@item = Item.create items_privates
+		@item = Item.new items_privates
+		@item.user_id = session[:id]
+		@item.save
 		redirect_to new_user_item_path	
 	end
 

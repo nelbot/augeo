@@ -20,13 +20,17 @@
 		<p>You are logged in as: <%= User.find(session[:id]).email %>
 	</div>
 		<div class="row">
-			<% num = 1 %>
-			<% while num <= @items.count %>
-				<%= @items.find(num).name %>
-				<%= @items.find(num).price %>
-				<%= @items.find(num).expiration %>
-				<%= @items.find(num).description %>
-				<% num += 1 %>
-			<% end %>
+
+			<ul>
+				<% @items.each do |item| %>
+					<li>
+						<%= item.id %>
+						<%= item.name %>
+						<%= item.price %>
+						<%= item.expiration %>
+						<%= item.description %>
+					</li>
+				<% end %>
+			</ul>
 		</div>
 </div>

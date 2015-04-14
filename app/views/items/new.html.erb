@@ -19,4 +19,14 @@
 			</dl>
 		<p>You are logged in as: <%= User.find(session[:id]).email %>
 	</div>
+		<div class="row">
+			<% num = 1 %>
+			<% while num <= @items.count %>
+				<%= @items.find(num).name %>
+				<%= @items.find(num).price %>
+				<%= @items.find(num).expiration %>
+				<%= @items.find(num).description %>
+				<% num += 1 %>
+			<% end %>
+		</div>
 </div>

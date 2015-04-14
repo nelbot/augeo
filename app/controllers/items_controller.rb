@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 		@user = User.find(session[:id])
 		@item.user_id = session[:id]
 		@item.save
-		@items = Item.all
+		@items = Item.where(id: 1)
 		render 'new'
 	end
 
@@ -13,7 +13,10 @@ class ItemsController < ApplicationController
 		redirect_to new_user_item_path	
 	end
 
-
+	def index
+		@items = Item.all
+		render 'index'
+	end
 
 
 	private

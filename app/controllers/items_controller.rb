@@ -18,6 +18,9 @@ class ItemsController < ApplicationController
 		render 'index'
 	end
 
+	def show
+		@item = 
+	end
 
 	private
 

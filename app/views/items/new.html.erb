@@ -1,4 +1,9 @@
-<h2>Add an Item</h2>
+
+ <div class="row">
+    <nav class="navbar navbar-default navbar-fixed-top add_item">
+      <div class="col-sm-5">
+<h2 class="augeo">Add an Augeo</h2>
+			  <div class="addform">
 				<%= form_for [@user, @item] do |f| %>
 					<%= f.label :name %>
 					<%= f.text_field :name, {class: 'form-control'} %>
@@ -9,17 +14,21 @@
 					<%= f.label :price %>
 					<%= f.number_field :price %>   <%= f.label :expiration %>   <%= f.date_field :expiration %>  <%= f.submit "Store", {class: 'btn-default'} %>
 				<% end %>
-			</dl>
-		<p>You are logged in as: <%= User.find(session[:id]).email %>
+			  </div>
 
-			<ul>
+				 </div>
+      <div class="col-sm-7">
+      <h4 class="login"><%= User.find(session[:id]).email %></h4>
+      <p class="online"><em>online now</em></p>
+      		<ul>
 				<% @items.each do |item| %>
 					<li>
-						<%= item.id %>
-						<%= item.name %>
-						<%= item.price %>
-						<%= item.expiration.to_date %>
-						<%= item.description %>
+					   <strong>Name:</strong> <%= item.name %>
+					   <strong>Price:</strong> $<%= item.price %>0
+					   <strong>Description:</strong> <%= item.description %>
 					</li>
 				<% end %>
 			</ul>
+      </div>
+    </nav>
+  </div>
